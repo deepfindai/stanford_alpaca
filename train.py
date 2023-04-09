@@ -16,7 +16,7 @@ import copy
 import logging
 from dataclasses import dataclass, field
 from typing import Optional, Dict, Sequence
-
+import mmh3
 import torch
 import transformers
 from torch.utils.data import Dataset
@@ -41,6 +41,18 @@ PROMPT_DICT = {
         "### Instruction:\n{instruction}\n\n### Response:"
     ),
 }
+#PROMPT_DICT = {
+#    "prompt_input": (
+#        "Below is an instruction that describes a task, paired with an input that provides further context. "
+#        "Write a response that appropriately completes the request.\n\n"
+#        "### Instruction:\n{instruction}\n\n### Input:\n{input}\n\n### Response:"
+#    ),
+#    "prompt_no_input": (
+#        "Below is an instruction that describes a task. "
+#        "Write a response that appropriately completes the request.\n\n"
+#        "### Instruction:\n{instruction}\n\n### Response:"
+#    ),
+#}
 
 
 @dataclass
